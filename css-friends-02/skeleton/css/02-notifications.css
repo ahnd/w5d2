@@ -1,0 +1,18 @@
+/* PHASE 2: Notifications */
+.badge {
+  background-color: black;
+  color: white;
+  margin-left: 5px;
+  padding: 0 5px;
+  border-radius: 10px;
+}
+
+
+.badge:hover {
+  background-color: red;
+
+}
+
+.notification-info {
+  display: none;
+}

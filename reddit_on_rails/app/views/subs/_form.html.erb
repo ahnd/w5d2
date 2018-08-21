@@ -1,0 +1,21 @@
+<% action = (type == :new) ? subs_url : sub_url(sub) %>
+<% button = (type == :new) ? "Create New Sub" : "Update Sub" %>
+
+<form action="<%= action %>" method="post">
+  <%= auth_token %>
+  <% if type == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  <label>
+    Title
+    <input type="text" name="sub[title]" value="<%= sub.title %>">
+  </label>
+  <br>
+  <label>
+    Description
+    <br>
+    <textarea name="sub[description]" rows="8" cols="60"></textarea>
+  </label>
+  <br>
+  <input type="submit" name="" value="<%= button %>">
+</form>

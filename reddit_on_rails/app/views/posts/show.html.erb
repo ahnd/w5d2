@@ -1,0 +1,41 @@
+
+<%= @post.title %> by <%= current_user.username %>
+<br>
+
+
+  <fieldset>
+  Content:
+<br>
+<br>
+  <%= @post.content %>
+</fieldset>
+
+<br>
+<fieldset>
+  <legend>Subs</legend>
+  <br>
+  <ul>
+    <% @post.subs.each do |sub| %>
+    <li>  <a href="<%= sub_url(sub) %>"><%= sub.title %></a> </li>
+    <% end %>
+  </ul>
+
+</fieldset>
+<br>
+Comments
+  <ul>
+    <% comments = @post.comments.where(parent_comment_id: nil) %>
+    <% comments.each do |comment| %>
+    <li>
+      <a href="<%=comment_url(comment)%>"><%=comment.content%></a>
+    </li>
+    <% end %>
+  </ul>
+
+<br>
+<br>
+<br>
+<br>
+<a href="<%= new_post_comment_url(@post)%>">Comment on this Post</a>
+<br>
+<a href="<%= edit_post_url(@post) %>">Edit</a>
